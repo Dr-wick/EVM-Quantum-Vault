@@ -1,0 +1,36 @@
+EVM-Quantum-Vault — source provenance
+
+This project contains adaptations of MIT-licensed protocol, contract and
+cryptographic client code from:
+  Aegis Protocol — https://github.com/imadegoodstuff/aegis-protocol
+  Commit: 71e4070ff7ce56a23e66a2bf742ace889868aa50
+  Copyright (c) 2026 Aegis Protocol contributors
+
+The retained design is CCHS-K-20: Winternitz one-time signatures, a two-layer
+Merkle hypertree and verifier-side subtree caching. The Solidity verifier and
+state machine derive from evm/src/AegisCCHSK.sol and AegisCCHSBase.sol. The
+factory is simplified from the upstream factory interface. The TypeScript
+signature core derives from wallet/src/aegis cryptographic modules used by
+the upstream MIT SDK; upstream sdk/package.json and sdk/README.md identify
+that SDK as MIT. Upstream's GPL-3.0 wallet UI is not included.
+
+This project changes the project/account derivation namespace, signature
+digest domains, supported networks, factory interface, index storage
+discipline and user interface. It is an independent project and makes no
+claim of upstream endorsement. The original MIT notice is preserved in
+LICENSE and src/crypto/UPSTREAM-LICENSE.txt.
+
+The EVM-Quantum-Vault public name does not change existing protocol constants,
+contract names, key derivation domains, database identifiers or backup formats.
+Those identifiers retain their original values for compatibility.
+
+No upstream SPHINCS+ C13 vendor verifier, Solana adapter, other-chain adapter,
+hybrid account, browser extension or GPL wallet component is included.
+
+Third-party npm dependencies retain their own licenses and copyright notices.
+The lockfile identifies their pinned versions. Distribution of dependencies
+must preserve the applicable notices; this LICENSE does not relicense them.
+
+Experimental software. No independent security audit or proof of the complete
+implementation is claimed. The protocol's one-time-key restrictions remain
+essential even when a transaction is dropped or never broadcast.

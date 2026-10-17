@@ -1,0 +1,54 @@
+{
+  "name": "evm-quantum-vault",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "Experimental hash-based smart-contract vaults with local signing and independent recovery keys.",
+  "license": "MIT",
+  "engines": {
+    "node": ">=24"
+  },
+  "scripts": {
+    "dev": "vite --host 127.0.0.1 --port 5174",
+    "build": "tsc --noEmit && vite build",
+    "preview": "vite preview --host 127.0.0.1 --port 4174",
+    "compile": "node scripts/compile.mjs",
+    "test": "npm run compile && node --experimental-test-module-mocks --import tsx --test tests/*.test.ts",
+    "check": "npm run test && npm run build",
+    "deploy:testnet": "node scripts/deploy.mjs --chain 97"
+  },
+  "dependencies": {
+    "@noble/hashes": "1.8.0",
+    "hash-wasm": "4.12.0",
+    "react": "19.3.0",
+    "react-dom": "19.3.0",
+    "viem": "2.57.4"
+  },
+  "devDependencies": {
+    "@ethereumjs/common": "4.4.0",
+    "@ethereumjs/util": "9.1.0",
+    "@ethereumjs/vm": "8.1.1",
+    "@types/node": "^22.10.0",
+    "@types/react": "19.3.0",
+    "@types/react-dom": "19.3.0",
+    "@vitejs/plugin-react": "4.7.0",
+    "fake-indexeddb": "^6.2.4",
+    "solc": "0.8.37",
+    "tsx": "4.23.15",
+    "typescript": "5.9.3",
+    "vite": "6.4.4"
+  },
+  "homepage": "https://github.com/Dr-wick/EVM-Quantum-Vault#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Dr-wick/EVM-Quantum-Vault.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Dr-wick/EVM-Quantum-Vault/issues"
+  },
+  "overrides": {
+    "solc": {
+      "tmp": "0.2.7"
+    }
+  }
+}
